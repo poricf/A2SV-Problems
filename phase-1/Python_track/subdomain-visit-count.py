@@ -5,8 +5,14 @@ class Solution:
 
     for cpdomain in cpdomains:
       num, domains = cpdomain.split()
+      print(num,domains)
       num, domains = int(num), domains.split('.')
+      print(num,domains)
       for i in reversed(range(len(domains))):
         count['.'.join(domains[i:])] += num
-
-    return [str(freq) + ' ' + domain for domain, freq in count.items()]
+        print(count)
+    
+    answer = []
+    for domain, freq in count.items():
+        answer += [str(freq) + ' ' + domain ]
+    return answer
