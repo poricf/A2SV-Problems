@@ -34,15 +34,8 @@ class Solution:
         [76,73] ---[6,7]
         [1,1,4,1,1,1,0,0]
         ---------------------------------------------------end
-        
-        
-        
-        
-        
-        
-        
-        
-        
+        Time Compelxity = O(n)
+        space Complexity = O(n)
         '''
         n = len(temperatures)
         
