@@ -1,20 +1,44 @@
 class Solution:
     def scoreOfParentheses(self, s: str) -> int:
-        stack = [0]  # Initialize the stack with a base score of 0
+        '''
+        s = ( ( ( ) ) ( ) )
 
-        for char in s:
-            if char == '(':
-                stack.append(0)  # Start a new level of parentheses
+        for this 
+        s = (3) = 6
+        A = B + C = (()) + () =  2 + 1 = 3
+        B = (D) = 2
+        D = ()
+------------------------------------------------------------------
+     
+        stack = [0,0,0]
+            ** when close parenthesis comes then [0,0] score = 0 we will add 1 at the top 
+                [0,1]
+            ** stack = [0]  score = 1 so 2 * 1 will be added to top
+            
+                [2]
+                [2,0]
+                [2] score = 0
+                [3]
+                [] score = 3
+                [6]
+we will return 6
+
+        '''
+        st = [0] #initialize with 0
+
+        for c in s:
+            if c == '(':
+                st.append(0)
             else:
-                score = stack.pop()  # Get the score of the current level
+                score = st.pop()
 
                 if score == 0:
-                    # If the score is 0, it means we have "()"
-                    # Increase the score at the previous level by 1
-                    stack[-1] += 1
+                    st[-1] += 1
                 else:
-                    # If the score is not 0, it means we have "(A)"
-                    # Double the score at the previous level and add it to the current level
-                    stack[-1] += 2 * score
+                    st[-1] += (score*2)
+        
+        return st[0]
 
-        return stack[0]  # The final score is stored at the base level of the stack
+        '''
+        TimeC & spaceC = O(n)
+        '''
