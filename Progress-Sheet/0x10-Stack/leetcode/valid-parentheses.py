@@ -6,7 +6,8 @@ class Solution:
 
         stack = }]
 
-        when getting closing bracket then it shoud be the same as the stack top
+        when getting closing bracket then it shoud be the same as the stack top 
+        at last if stack is not empty then openiign bracket didnt get match 
 
         '''
         if len(s) < 2:
