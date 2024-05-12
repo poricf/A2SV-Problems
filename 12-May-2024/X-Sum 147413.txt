@@ -1,0 +1,71 @@
+# Problem: X-Sum - https://codeforces.com/contest/1676/problem/D
+
+#include <bits/stdc++.h>
+using namespace std;
+#define  Fast ios::sync_with_stdio(false)
+#define Null cin.tie(nullptr)
+#define ll long long
+
+//helper Function
+// ll cost(string s, string t) {
+
+// }
+// 
+
+void solve(){
+    int n,m; cin >>n >> m;
+    ll g[n][m];
+    for (int r = 0; r < n; r++) {
+      for (int c = 0; c < m; c++) {
+        cin >> g[r][c];
+      }
+    }
+    
+    ll ans = 0;
+    
+    for (int r = 0; r < n; r++) {
+      for (int c = 0; c < m; c++) {
+          ll sum = 0;
+          
+        // wedelay and wedegra  -1-1
+        for (int i = 1; r - i >= 0 and c - i >= 0; i++) {
+          sum += g[r - i][c - i];
+        }
+        // wedetach wedekegn
+         for (int i = 1; r + i < n and c + i < m; i++) {
+          sum += g[r + i][c + i];
+        }
+        //wedetach wedegre  +1-1
+        for (int i = 1; r + i < n and c - i >= 0; i++) {
+          sum += g[r + i][c - i];
+        }
+        // wedelay wedekegn +-1,+1
+        for (int i = 1; r - i >= 0 and c + i < m; i++) {
+          sum += g[r - i][c + i];
+        }
+        sum += g[r][c];
+        ans = max(ans, sum);
+      }
+      
+      
+        
+    }
+    cout << ans << "\n";
+    
+}
+
+int main() {
+  Fast;
+  Null;
+  int t;
+  cin >> t;
+  while (t--) {
+    solve();
+  }
+  return 0;
+}
+
+
+
+
+
