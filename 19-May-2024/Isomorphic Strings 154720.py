@@ -1,0 +1,23 @@
+# Problem: Isomorphic Strings - https://leetcode.com/problems/isomorphic-strings/
+
+class Solution:
+    def isIsomorphic(self, s: str, t: str) -> bool:
+        dict = {}
+        hSet = set()
+
+        for i in range (len(s)):
+            sChar = s[i]
+            tChar = t[i]
+            if (sChar not in dict):
+                if(tChar in hSet):
+                    return False
+                
+                dict[sChar] = tChar
+                hSet.add(tChar)
+            
+            else:    #check if exists
+                if(tChar != dict[sChar]):
+                    return False
+
+
+        return True
