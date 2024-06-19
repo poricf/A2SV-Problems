@@ -1,0 +1,12 @@
+# Problem: Find Xor-Beauty of Array - https://leetcode.com/problems/find-xor-beauty-of-array/
+
+class Solution {
+public:
+    int xorBeauty(vector<int>& nums) {
+        int ans = 0;
+        for (auto x: nums){
+            ans ^= x;
+        }
+        return ans;
+    }
+};
