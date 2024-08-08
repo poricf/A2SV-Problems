@@ -1,0 +1,22 @@
+# Problem: Apply Operations to an Array - https://leetcode.com/problems/apply-operations-to-an-array/
+
+class Solution {
+public:
+    vector<int> applyOperations(vector<int>& nums) {
+        int ln= nums.size();
+        for(int i=0;i<ln-1;i++){
+            if(nums[i]== nums[i+1]){
+                nums[i]*=2;
+                nums[i+1]=0;
+            }
+        }
+        
+        int k=0;
+        vector<int> ans(ln,0);
+        for(int i=0;i<ln;i++){
+            if(nums[i]!= 0)ans[k++]= nums[i];
+        }
+        
+        return ans;
+    }
+};
